@@ -3,13 +3,16 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
 import "react-native-gesture-handler";
-import { home_screen, order_delivery, restaurant } from "./src/constants/screen_default";
 import NavigationBottomTab from "./src/navigation/NavigationBottomTab";
+import {Provider} from 'react-redux'
+import configureStore from "./src/redux/reducer/store"
 
 const Stack = createStackNavigator();
+const store  = configureStore();
 
 export default function App() {
   return (
+    <Provider store={store}>
     <SafeAreaView style={style.container}>
       <NavigationContainer>
         <Stack.Navigator
@@ -23,6 +26,7 @@ export default function App() {
       </NavigationContainer>
       <StatusBar barStyle="default" />
     </SafeAreaView>
+    </Provider>
   );
 }
 

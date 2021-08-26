@@ -12,7 +12,7 @@ export const COLOR = {
 
   lightGray: "#f5f5f6",
   lightGray2: "#f6f6f7",
-  lightGray3: "#efeff1 ",
+  lightGray3: "#efeff1",
   lightGray4: "#f8f8f9",
   transparent: "transparent",
   darkgray: '#898c95',
