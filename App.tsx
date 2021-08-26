@@ -1,40 +1,35 @@
-import React from "react";
-import 'react-native-gesture-handler';
-import { SafeAreaView, StyleSheet, Text, StatusBar  , View} from "react-native";
-import HomeScreen from "./src/screens/home_screen/HomeScreen";
-import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
+import "react-native-gesture-handler";
+import { home_screen, order_delivery, restaurant } from "./src/constants/screen_default";
+import NavigationBottomTab from "./src/navigation/NavigationBottomTab";
 
 const Stack = createStackNavigator();
-const bottomTab = createBottomTabNavigator();
-
 
 export default function App() {
   return (
     <SafeAreaView style={style.container}>
       <NavigationContainer>
-      <Stack.Navigator screenOptions ={{
-        headerShown : false      }}
-        initialRouteName={"Home"}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-    <StatusBar barStyle="default"/>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }} // tắt header - app bar bên flutter
+          initialRouteName={"bottomTab"}
+        >
+          <Stack.Screen name="bottomTab" component={NavigationBottomTab} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <StatusBar barStyle="default" />
     </SafeAreaView>
-
   );
 }
 
-const style  = StyleSheet.create({
-  container:{
+const style = StyleSheet.create({
+  container: {
     flex: 1,
-  
-    backgroundColor: '#ffffff'
-  }
 
-
+    backgroundColor: "#ffffff",
+  },
 });
-
-
-
